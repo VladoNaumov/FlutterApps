@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:untitle/vidgeds/app.dart';
+
+import 'src/examples/profilesApp/app.dart';
 
 /* RUN  */
 
