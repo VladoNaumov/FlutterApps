@@ -1,17 +1,18 @@
 ### Practical Flutter
 
-- ch 00 
-  	-demo 
+- ch 00  
+  - Demo 
       - Android demo code
-  - examples
+      - String to Widget List
+  - Examples
     - Chat
     - Profils
     - ProfileApp
-  - layouts
+    - 
+  - Layouts
   - Widgets
     - CustomSingleChildLayout и CustomMultiChildLayout
     - Stack
     - ListView
-- 
-- 
-- ch 03 Book Example
+- ch 03 
+  - Book Example
