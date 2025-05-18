@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
   }
 }
 
-// базовая структура экрана + AppBar Color
+// базовая структура экрана с темой и AppBar
 class MyAppAppBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -35,7 +35,7 @@ class MyAppAppBar extends StatelessWidget {
   }
 }
 
-// базовая структура экрана + AppBar Color + class
+// Главное приложение с темой и AppBar
 class MyAppAppBar_ extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -45,11 +45,12 @@ class MyAppAppBar_ extends StatelessWidget {
           backgroundColor: Colors.deepPurple,
         ),
       ),
-      home: MyHomePage(), // вызов class MyHomePage
+      home: MyHomePage(),  // Главная страница
     );
   }
 }
 
+// Главная страница
 class MyHomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
