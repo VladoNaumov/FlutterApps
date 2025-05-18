@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class Example1 extends StatelessWidget{
+class ExamConteinerOne extends StatelessWidget{
 
   @override
   Widget build(BuildContext context) {
@@ -34,7 +34,7 @@ class Example extends StatelessWidget{
   }
 }
 
-class ExamlContainer extends StatelessWidget {
+class ExamlContainerTwo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -59,3 +59,24 @@ class ExamlContainer extends StatelessWidget {
     );
   }
 }
+
+/*
+* Container — это многофункциональный виджет-обёртка, который позволяет:
+
+управлять размером
+задавать цвет, фон и границы
+выравнивать дочерний виджет
+добавлять отступы и внешние поля (padding и margin)
+
+| Свойство          | Описание                                                |
+| ----------------- | ------------------------------------------------------- |
+| `width`, `height` | Ширина и высота                                         |
+| `color`           | Фон                                                     |
+| `padding`         | Внутренние отступы (между границей и контентом)         |
+| `margin`          | Внешние отступы (вокруг контейнера)                     |
+| `alignment`       | Выравнивание дочернего виджета                          |
+| `decoration`      | Более сложное оформление: цвета, границы, тени, радиусы |
+| `child`           | Вложенный (внутренний) виджет                           |
+
+
+*/
