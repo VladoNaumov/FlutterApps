@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import 'src/examples/profilesApp/app.dart';
 
 /* RUN  */

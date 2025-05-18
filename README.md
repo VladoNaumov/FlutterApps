@@ -1,6 +1,7 @@
 ### Practical Flutter
 
 - lib/src
+  - Docs
   - Demo 
       - Android demo code
       - String to Widget List
