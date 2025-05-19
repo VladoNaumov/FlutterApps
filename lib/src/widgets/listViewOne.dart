@@ -30,7 +30,10 @@ class ListViewOne extends StatelessWidget{
   Widget build(BuildContext context) {
     //Scaffold — нужен для отображения базовой структуры экрана (AppBar, body и др.)
     return Scaffold(
-        appBar: AppBar(title: const Text('ListView Example')),
+        appBar: AppBar(
+            title: const Text('ListView Example')
+        ),
+
         body:  ListView(
           children: [
             Container (
