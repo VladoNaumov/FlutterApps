@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 // Главный виджет профиля пользователя
 class UserProfile extends StatelessWidget {
+
   final List<MenuRowData> firstMenuRow = [
     MenuRowData(Icons.favorite_outline, 'Favorite'),
     MenuRowData(Icons.call, 'Call'),
@@ -16,8 +17,6 @@ class UserProfile extends StatelessWidget {
     MenuRowData(Icons.brush, 'Themes'),
     MenuRowData(Icons.language, 'Language'),
   ];
-
-  UserProfile();
 
   @override
   Widget build(BuildContext context) {
@@ -148,13 +147,9 @@ class AvatarWidget extends StatelessWidget {
 
 /*
 Что улучшено:
-✅ Заменены width на height в SizedBox для Column.
-
-✅ Добавлен SingleChildScrollView, чтобы экран был прокручиваемым.
-
-✅ Заменён Placeholder на CircleAvatar для аватара.
-
-✅ Уточнены подписи элементов меню.
-
-✅ Добавлены стили к имени пользователя для выделения.
+Заменены width на height в SizedBox для Column.
+Добавлен SingleChildScrollView, чтобы экран был прокручиваемым.
+Заменён Placeholder на CircleAvatar для аватара.
+Уточнены подписи элементов меню.
+Добавлены стили к имени пользователя для выделения.
 * */

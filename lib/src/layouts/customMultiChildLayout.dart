@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 class CostMultiChild extends StatelessWidget {
   const CostMultiChild({super.key});
 
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -13,8 +12,8 @@ class CostMultiChild extends StatelessWidget {
         useMaterial3: false,
       ),
       home: Scaffold(
-        appBar: AppBar(title: const Text('CustomMultiChildLayout')),
-        body: const MyLayout(),
+        appBar: AppBar(title: Text('CustomMultiChildLayout')),
+        body: MyLayout(),
       ),
     );
   }
@@ -28,6 +27,7 @@ class MyLayout extends StatelessWidget {
     return CustomMultiChildLayout(
       delegate: MySimpleDelegate(),
       children: [
+        // Центрированный контейнер
         LayoutId(
           id: 'center',
           child: Container(
@@ -37,6 +37,7 @@ class MyLayout extends StatelessWidget {
             child: const Center(child: Text('Центр')),
           ),
         ),
+        // Контейнер в левом верхнем углу
         LayoutId(
           id: 'topLeft',
           child: Container(
@@ -46,6 +47,7 @@ class MyLayout extends StatelessWidget {
             child: const Center(child: Text('Верх')),
           ),
         ),
+        // Контейнер в правом нижнем углу
         LayoutId(
           id: 'bottomRight',
           child: Container(
@@ -63,34 +65,32 @@ class MyLayout extends StatelessWidget {
 class MySimpleDelegate extends MultiChildLayoutDelegate {
   @override
   void performLayout(Size size) {
+    // Центрируем элемент по центру родителя
     if (hasChild('center')) {
       final centerSize = layoutChild('center', BoxConstraints.loose(size));
-      positionChild(
-        'center',
-        Offset(
-          (size.width - centerSize.width) / 2,
-          (size.height - centerSize.height) / 2,
-        ),
+      final centerOffset = Offset(
+        (size.width - centerSize.width) / 2,
+        (size.height - centerSize.height) / 2,
       );
+      positionChild('center', centerOffset);
     }
 
+    // Размещаем элемент в левом верхнем углу с отступом
     if (hasChild('topLeft')) {
-      final topSize = layoutChild('topLeft', BoxConstraints.loose(size));
-      positionChild('topLeft', const Offset(10, 10)); // отступ от угла
+      layoutChild('topLeft', BoxConstraints.loose(size));
+      positionChild('topLeft', const Offset(10, 10));
     }
 
+    // Размещаем элемент в правом нижнем углу с отступом
     if (hasChild('bottomRight')) {
       final bottomSize = layoutChild('bottomRight', BoxConstraints.loose(size));
-      positionChild(
-        'bottomRight',
-        Offset(
-          size.width - bottomSize.width - 10,
-          size.height - bottomSize.height - 10,
-        ),
+      final bottomOffset = Offset(
+        size.width - bottomSize.width - 10,
+        size.height - bottomSize.height - 10,
       );
+      positionChild('bottomRight', bottomOffset);
     }
   }
-
   @override
   bool shouldRelayout(covariant MultiChildLayoutDelegate oldDelegate) => false;
 }
