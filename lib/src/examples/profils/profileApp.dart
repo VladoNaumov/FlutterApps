@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+void main() => runApp(ProfileApp());
+
 /// Модель профиля с идентификатором и именем.
 class Profile {
   final int id;

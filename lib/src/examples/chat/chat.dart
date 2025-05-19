@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+void main() => runApp(TelegramChatApp());
+
 class TelegramChatApp extends StatelessWidget {
   const TelegramChatApp({super.key});
 

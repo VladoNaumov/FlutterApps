@@ -41,7 +41,7 @@ MaterialApp(
 
 ### 2. `Scaffold`
 
-Базовая структура экрана: `AppBar`, `body`, `Drawer`, `BottomNavigationBar`.
+Scaffold нужен для отображения базовой структуры экрана (`AppBar`, `body`, `Drawer`, `BottomNavigationBar`)
 
 ```dart
 Scaffold(

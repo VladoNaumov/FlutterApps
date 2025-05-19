@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+void main() => runApp(listChat());
+
 class listChat extends StatelessWidget {
   const listChat({super.key});
 

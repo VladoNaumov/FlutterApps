@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+void main() => runApp(MyListView());
+
 class MyListView extends StatelessWidget {
   const MyListView({super.key});
 

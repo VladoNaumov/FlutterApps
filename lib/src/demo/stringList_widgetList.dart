@@ -3,6 +3,9 @@
 
 import 'package:flutter/material.dart';
 
+
+void main() => runApp(const AppExample());
+
 /// Главный виджет приложения
 class AppExample extends StatelessWidget {
   const AppExample({super.key});
