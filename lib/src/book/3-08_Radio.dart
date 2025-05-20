@@ -1,95 +1,131 @@
 import 'package:flutter/material.dart';
 
+
 void main() => runApp(MyApp());
 
+// Класс MyApp — главный виджет приложения, наследуется от StatefulWidget (виджет с изменяемым состоянием)
 class MyApp extends StatefulWidget {
   @override
+  // Создаём состояние для MyApp
   _MyAppState createState() => _MyAppState();
 }
 
+// Класс _MyAppState управляет состоянием виджета MyApp
 class _MyAppState extends State<MyApp> {
+  // GlobalKey для формы, чтобы управлять её состоянием (например, для валидации)
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+
+  // Переменная для хранения состояния чекбокса (включен/выключен)
   bool _checkboxValue = false;
+
+  // Переменная для хранения состояния переключателя (Switch)
   bool _switchValue = false;
+
+  // Переменная для хранения значения слайдера (от 0 до 20)
   double _sliderValue = 0.3;
+
+  // Переменная для хранения значения выбранной радиокнопки (1, 2 или 3)
   int _radioValue = 1;
 
   @override
+  // Метод build определяет, как будет выглядеть экран
   Widget build(BuildContext context) {
+    // MaterialApp — основной виджет для создания приложения с дизайном Material
     return MaterialApp(
       home: Scaffold(
+        // Scaffold задаёт структуру экрана
         body: SingleChildScrollView(
-          padding: EdgeInsets.all(50.0),
+          // SingleChildScrollView позволяет прокручивать содержимое, если оно не помещается на экране
+          padding: EdgeInsets.all(50.0), // Отступы со всех сторон на 50 пикселей
           child: Form(
-            key: _formKey,
+            key: _formKey, // Привязываем ключ формы для управления
             child: Column(
+              // Column располагает виджеты вертикально
               children: [
+                // Чекбокс для выбора (включен/выключен)
                 Checkbox(
-                  value: _checkboxValue,
+                  value: _checkboxValue, // Текущее состояние чекбокса
                   onChanged: (bool? inValue) {
+                    // При изменении состояния чекбокса
                     setState(() {
+                      // Обновляем _checkboxValue, используя значение inValue (или false, если null)
                       _checkboxValue = inValue ?? false;
                     });
                   },
                 ),
+                // Переключатель (Switch) для включения/выключения
                 Switch(
-                  value: _switchValue,
+                  value: _switchValue, // Текущее состояние переключателя
                   onChanged: (bool? inValue) {
+                    // При изменении состояния переключателя
                     setState(() {
+                      // Обновляем _switchValue, используя значение inValue (или false, если null)
                       _switchValue = inValue ?? false;
                     });
                   },
                 ),
+                // Слайдер для выбора значения в диапазоне
                 Slider(
-                  min: 0,
-                  max: 20,
-                  value: _sliderValue,
+                  min: 0, // Минимальное значение слайдера
+                  max: 20, // Максимальное значение слайдера
+                  value: _sliderValue, // Текущее значение слайдера
                   onChanged: (double inValue) {
+                    // При изменении положения слайдера
                     setState(() {
+                      // Обновляем _sliderValue
                       _sliderValue = inValue;
                     });
                   },
                 ),
+                // Первая радиокнопка (Option 1)
                 Row(
                   children: [
                     Radio<int>(
-                      value: 1,
-                      groupValue: _radioValue,
+                      value: 1, // Значение этой радиокнопки
+                      groupValue: _radioValue, // Текущее выбранное значение группы радиокнопок
                       onChanged: (int? inValue) {
+                        // При выборе этой радиокнопки
                         setState(() {
+                          // Обновляем _radioValue, используя значение inValue (или 1, если null)
                           _radioValue = inValue ?? 1;
                         });
                       },
                     ),
-                    Text("Option 1")
+                    Text("Option 1"), // Текст рядом с радиокнопкой
                   ],
                 ),
+                // Вторая радиокнопка (Option 2)
                 Row(
                   children: [
                     Radio<int>(
-                      value: 2,
-                      groupValue: _radioValue,
+                      value: 2, // Значение этой радиокнопки
+                      groupValue: _radioValue, // Текущее выбранное значение группы радиокнопок
                       onChanged: (int? inValue) {
+                        // При выборе этой радиокнопки
                         setState(() {
+                          // Обновляем _radioValue, используя значение inValue (или 1, если null)
                           _radioValue = inValue ?? 1;
                         });
                       },
                     ),
-                    Text("Option 2")
+                    Text("Option 2"), // Текст рядом с радиокнопкой
                   ],
                 ),
+                // Третья радиокнопка (Option 3)
                 Row(
                   children: [
                     Radio<int>(
-                      value: 3,
-                      groupValue: _radioValue,
+                      value: 3, // Значение этой радиокнопки
+                      groupValue: _radioValue, // Текущее выбранное значение группы радиокнопок
                       onChanged: (int? inValue) {
+                        // При выборе этой радиокнопки
                         setState(() {
+                          // Обновляем _radioValue, используя значение inValue (или 1, если null)
                           _radioValue = inValue ?? 1;
                         });
                       },
                     ),
-                    Text("Option 3")
+                    Text("Option 3"), // Текст рядом с радиокнопкой
                   ],
                 ),
               ],
@@ -100,3 +136,68 @@ class _MyAppState extends State<MyApp> {
     );
   }
 }
+
+/*
+Общее объяснение кода
+Этот код создаёт Flutter-приложение с экраном, на котором отображаются четыре интерактивных элемента:
+Чекбокс (Checkbox) — позволяет включать или выключать опцию.
+
+Переключатель (Switch) — аналог чекбокса, но с другим дизайном.
+
+Слайдер (Slider) — позволяет выбрать значение в диапазоне от 0 до 20.
+
+Радиокнопки (Radio) — позволяют выбрать одну из трёх опций.
+
+Все элементы находятся внутри формы (Form), которая обёрнута в SingleChildScrollView для прокрутки, если содержимое не помещается на экране. Состояние элементов (чекбокса, переключателя, слайдера и радиокнопок) хранится в переменных и обновляется с помощью setState.
+Разбор ключевых компонентов
+Точка входа (main):
+Функция main запускает приложение, вызывая runApp с виджетом MyApp.
+
+Класс MyApp и StatefulWidget:
+MyApp наследуется от StatefulWidget, так как приложение должно обновлять интерфейс при изменении состояния (например, при выборе радиокнопки или перемещении слайдера).
+
+Состояние хранится в классе _MyAppState.
+
+Переменные состояния:
+_formKey: Ключ для управления формой (например, для проверки данных, хотя в этом коде валидация не используется).
+
+_checkboxValue: Булево значение (true или false) для чекбокса.
+
+_switchValue: Булево значение для переключателя.
+
+_sliderValue: Числовое значение (тип double) для слайдера, изначально 0.3.
+
+_radioValue: Целое число (тип int) для хранения выбранной радиокнопки (1, 2 или 3).
+
+Метод build:
+Создаёт интерфейс с помощью MaterialApp и Scaffold.
+
+SingleChildScrollView позволяет прокручивать содержимое, если оно выходит за пределы экрана.
+
+padding: EdgeInsets.all(50.0) добавляет отступы со всех сторон на 50 пикселей.
+
+Form содержит все элементы формы, объединённые в Column для вертикального расположения.
+
+Элементы формы:
+Чекбокс (Checkbox): Показывает, включена ли опция. При нажатии вызывает setState для обновления _checkboxValue.
+
+Переключатель (Switch): Похож на чекбокс, но с другим дизайном (в стиле переключателя). Обновляет _switchValue.
+
+Слайдер (Slider): Позволяет пользователю выбрать значение в диапазоне от 0 до 20. Обновляет _sliderValue.
+
+Радиокнопки (Radio): Три радиокнопки объединены в группу через groupValue: _radioValue. Только одна может быть выбрана одновременно. При выборе обновляется _radioValue.
+
+Что делает приложение
+Показывает экран с чекбоксом, переключателем, слайдером и тремя радиокнопками.
+
+Пользователь может:
+Включать или выключать чекбокс и переключатель.
+
+Перемещать слайдер для выбора значения от 0 до 20.
+
+Выбирать одну из трёх опций с помощью радиокнопок.
+
+Все изменения сохраняются в переменных состояния и обновляют интерфейс через setState.
+
+
+* */
