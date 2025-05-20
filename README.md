@@ -1,6 +1,7 @@
 ### Practical Flutter
 
 - lib/src
+  - Book
   - Docs
   - Demo 
       - Android demo code
