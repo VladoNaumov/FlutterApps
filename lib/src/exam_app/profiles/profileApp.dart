@@ -27,13 +27,11 @@ class ProfileGridPage extends StatefulWidget {
   const ProfileGridPage({super.key});
 
   @override
-  State<ProfileGridPage> createState() {
-    return _ProfileGridPageState();
-  }
+  State<ProfileGridPage> createState() => _ProfileGridPageState();
 }
 
 class _ProfileGridPageState extends State<ProfileGridPage> {
-  /// Список профилей, инициализируется 50 профилями.
+  /// Список профилей, инициализируется 25 профилями.
   final List<Profile> profiles = List.generate(
     25,
         (index) => Profile(id: index, name: 'User $index'),
@@ -54,12 +52,23 @@ class _ProfileGridPageState extends State<ProfileGridPage> {
         title: const Text('Профили'),
         backgroundColor: Colors.blue,
       ),
-      body: GridView.count(
-        crossAxisCount: 3,
+      body: GridView.builder(
         padding: const EdgeInsets.all(8),
-        mainAxisSpacing: 8,
-        crossAxisSpacing: 8,
-        children: profiles.map((profile) {
+
+        // Определяет, как будет выглядеть сетка:
+        // здесь фиксированное количество колонок — 3.
+        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+          crossAxisCount: 3,           // Количество колонок в сетке
+          mainAxisSpacing: 8,          // Вертикальные отступы между элементами
+          crossAxisSpacing: 8,         // Горизонтальные отступы между элементами
+        ),
+
+        itemCount: profiles.length,     // Количество элементов в сетке
+
+        // Ленивая генерация виджетов по индексу.
+        // Это экономит память, потому что не создаёт все элементы сразу.
+        itemBuilder: (context, index) {
+          final profile = profiles[index];
           return Column(
             mainAxisSize: MainAxisSize.min,
             children: [
@@ -68,9 +77,25 @@ class _ProfileGridPageState extends State<ProfileGridPage> {
               Text(profile.name, style: const TextStyle(fontSize: 14)),
             ],
           );
-        }).toList(),
+        },
       ),
     );
   }
 }
 
+/*
+### `ListView.builder` vs `GridView.builder`:
+
+* **`ListView.builder`** — используется для вертикальных или горизонтальных списков **в один столбец**.
+* **`GridView.builder`** — используется для **сеток** с несколькими колонками (как в твоем случае `crossAxisCount: 3`).
+
+Так как ты отображаешь **сетку** профилей, логично использовать `GridView.builder`.
+
+Если бы ты показывал просто вертикальный список пользователей (один под другим), тогда бы подошёл `ListView.builder`.
+
+Примеры:
+
+* **Сетка (n колонок)** → `GridView.builder`
+* **Простой список** → `ListView.builder`
+
+* */

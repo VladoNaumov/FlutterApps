@@ -122,8 +122,10 @@ class UserPhoneWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Text('+358 00 00 00',
-      style: TextStyle(color: Colors.grey[600]),
+    return Text(
+      '+358 00 00 00',
+      style: TextStyle(
+          color: Colors.grey[600]),
     );
   }
 }
@@ -133,8 +135,11 @@ class UserNameWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Text('Naum', style: TextStyle(fontSize: 18,
-        fontWeight: FontWeight.bold
+    return Text(
+        'Naum',
+        style: TextStyle(
+            fontSize: 18,
+            fontWeight: FontWeight.bold
     )
     );
   }
@@ -148,7 +153,10 @@ class AvatarWidget extends StatelessWidget {
     return CircleAvatar(
       radius: 50,
       backgroundColor: Colors.grey[300],
-      child: Icon(Icons.person, size: 50, color: Colors.white),
+      child: Icon(
+          Icons.person,
+          size: 50,
+          color: Colors.white),
     );
   }
 }
