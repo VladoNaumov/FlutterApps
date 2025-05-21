@@ -38,7 +38,7 @@ class _ProfileGridPageState extends State<ProfileGridPage> {
   );
 
   /*
-    final List<Profile> profiles = [
+    final List<Profile> Icons_profiles = [
     Profile(id: 1, name: 'Алексей'),
     Profile(id: 2, name: 'Мария'),
     Profile(id: 3, name: 'Иван'),
