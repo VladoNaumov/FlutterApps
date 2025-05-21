@@ -7,9 +7,9 @@
       - Android demo code
       - String to Widget List
       - Basics 
-  - Examples
+  - Exam_app
     - Chat
-    - Profils
+    - Profiles
     - ProfileApp
     - 
   - Layouts
@@ -21,8 +21,9 @@
       - Row
       - Stack
   - Widgets
-    - ListView
-    - 
+    - ListViewOne
+    - ListViewTwo
+    - ListViewSeparation
 - 
 
 

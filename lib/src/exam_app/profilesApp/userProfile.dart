@@ -55,8 +55,11 @@ class MenuWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: menuRow.map((data) => MenuWidgetRow(data: data)).toList(),
+    return ListView.builder(
+      shrinkWrap: true,
+      physics: NeverScrollableScrollPhysics(),
+      itemCount: menuRow.length,
+      itemBuilder: (context, index) => MenuWidgetRow(data: menuRow[index]),
     );
   }
 }
@@ -119,7 +122,9 @@ class UserPhoneWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Text('+358 00 00 00');
+    return Text('+358 00 00 00',
+      style: TextStyle(color: Colors.grey[600]),
+    );
   }
 }
 
@@ -128,7 +133,10 @@ class UserNameWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Text('Naum', style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold));
+    return Text('Naum', style: TextStyle(fontSize: 18,
+        fontWeight: FontWeight.bold
+    )
+    );
   }
 }
 
@@ -144,12 +152,3 @@ class AvatarWidget extends StatelessWidget {
     );
   }
 }
-
-/*
-Что улучшено:
-Заменены width на height в SizedBox для Column.
-Добавлен SingleChildScrollView, чтобы экран был прокручиваемым.
-Заменён Placeholder на CircleAvatar для аватара.
-Уточнены подписи элементов меню.
-Добавлены стили к имени пользователя для выделения.
-* */
