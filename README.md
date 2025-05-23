@@ -9,8 +9,8 @@
       - Basics 
   - Exam_app
     - Chat
-    - Profiles
-    - ProfileApp
+    - Icon_Profiles
+    - Profile
     - 
   - Layouts
       - CustomSingleChildLayout
