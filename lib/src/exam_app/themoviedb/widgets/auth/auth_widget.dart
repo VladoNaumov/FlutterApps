@@ -146,7 +146,7 @@ class _FormWidgetState extends State<_FormWidget> {
               child: const Text('Login'),
             ),
             TextButton(
-              onPressed: _resetPasword, // TODO: Login action
+              onPressed: _resetPasword, // TODO: Reset password
               style: TextButton.styleFrom(
                 foregroundColor: color,
               ),
