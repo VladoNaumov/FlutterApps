@@ -2,10 +2,11 @@ import 'package:flutter/material.dart';
 import 'widgets/auth/auth_widget.dart';
 
 
-
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget{
+  const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
    return MaterialApp(
@@ -14,10 +15,15 @@ class MyApp extends StatelessWidget{
          appBarTheme: AppBarTheme(
            backgroundColor: const Color.fromRGBO(3, 37, 65, 1),
            titleTextStyle: TextStyle(color: Colors.white, fontSize: 20),
-           //iconTheme: IconThemeData(color: Colors.white),
          )
      ),
      home: AuthWidget(),
    );
   }
 }
+
+/*
+**AppBar** — верхняя панель с заголовком и кнопками
+**ThemeData** — набор настроек оформления (цвета, шрифты).
+**Material** — основа визуального стиля Material Design.
+* */
