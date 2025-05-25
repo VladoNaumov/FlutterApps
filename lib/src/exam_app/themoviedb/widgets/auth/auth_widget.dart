@@ -1,6 +1,22 @@
+// TODO UI interface Login and Password
+
 import 'package:flutter/material.dart';
 
 final color = const Color(0xFF01B4E4); // основной цвет
+
+final buttonStyle = ElevatedButton.styleFrom(
+  foregroundColor: color,
+  backgroundColor: Colors.white,
+  elevation: 0,
+);
+
+final textFieldDecoration = const InputDecoration(
+  border: OutlineInputBorder(),
+  contentPadding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+);
+
+const textStyle = TextStyle(fontSize: 16, color: Colors.black);
+
 
 class AuthWidget extends StatefulWidget {
   const AuthWidget({super.key});
@@ -48,11 +64,7 @@ class _HeaderWidget extends StatelessWidget {
           onPressed: () {
             // TODO: Register action
           },
-          style: ElevatedButton.styleFrom(
-            foregroundColor: color,
-            backgroundColor: Colors.white,
-            elevation: 0,
-          ),
+          style: buttonStyle, // Применяем общий стиль
           child: const Text('Register'),
         ),
         const SizedBox(height: 25),
@@ -85,35 +97,43 @@ class _FormWidget extends StatefulWidget {
 }
 
 class _FormWidgetState extends State<_FormWidget> {
+  final _loginTextController =  TextEditingController();
+  final _passwordTextController =  TextEditingController();
+
+  void _auch(){
+
+  }
+
+  void _resetPasword(){
+    print('reset password');
+  }
+
   @override
   Widget build(BuildContext context) {
-    const textStyle = TextStyle(fontSize: 16, color: Colors.black);
-    const textFieldDecoration = InputDecoration(
-      border: OutlineInputBorder(),
-      contentPadding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
-    );
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         const Text('Username', style: textStyle),
         const SizedBox(height: 5),
-        const TextField(decoration: textFieldDecoration),
+        TextField(
+            controller: _loginTextController,
+            decoration: textFieldDecoration
+        ),
         const SizedBox(height: 20),
         const Text('Password', style: textStyle),
         const SizedBox(height: 5),
-        const TextField(
-          decoration: textFieldDecoration,
-          obscureText: true,
+        TextField(
+            controller: _passwordTextController,
+            decoration: textFieldDecoration,
+            obscureText: true,
         ),
         const SizedBox(height: 20),
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             ElevatedButton(
-              onPressed: () {
-                // TODO: Login action
-              },
+              onPressed: _auch, // TODO: Login action
               style: ElevatedButton.styleFrom(
                 backgroundColor: color,
                 foregroundColor: Colors.white,
@@ -126,9 +146,7 @@ class _FormWidgetState extends State<_FormWidget> {
               child: const Text('Login'),
             ),
             TextButton(
-              onPressed: () {
-                // TODO: Reset password action
-              },
+              onPressed: _resetPasword, // TODO: Login action
               style: TextButton.styleFrom(
                 foregroundColor: color,
               ),
