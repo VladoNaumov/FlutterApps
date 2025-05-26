@@ -18,7 +18,7 @@ class LoginPage extends StatelessWidget {
   }
 }
 
-// Содержимое логина
+// Контент логина
 class LoginContent extends StatelessWidget {
   const LoginContent({super.key});
 
@@ -48,13 +48,22 @@ class _LoginFormState extends State<LoginForm> {
   final passwordController = TextEditingController();
 
   void login() {
-    // Пример действия входа
-    print('Login: ${usernameController.text}, Password: ${passwordController.text}');
+    final login = usernameController.text.trim();
+    final password = passwordController.text.trim();
+
+    if (login == 'admin' && password == 'admin') {
+      Navigator.of(context).pushReplacementNamed('/main_screen');
+    } else {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text('Invalid username or password')),
+      );
+    }
   }
 
   void resetPassword() {
-    // Пример действия сброса пароля
-    print('Reset password requested');
+    ScaffoldMessenger.of(context).showSnackBar(
+      const SnackBar(content: Text('Reset password requested')),
+    );
   }
 
   @override
@@ -62,34 +71,37 @@ class _LoginFormState extends State<LoginForm> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const Text('Username'),
-        TextField(controller: usernameController),
+        TextField(
+          controller: usernameController,
+          decoration: const InputDecoration(
+            labelText: 'Username',
+            border: OutlineInputBorder(),
+          ),
+        ),
         const SizedBox(height: 20),
-        const Text('Password'),
         TextField(
           controller: passwordController,
           obscureText: true,
+          decoration: const InputDecoration(
+            labelText: 'Password',
+            border: OutlineInputBorder(),
+          ),
         ),
         const SizedBox(height: 20),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            ElevatedButton(
-              onPressed: login,
-              child: const Text('Login'),
-            ),
-            TextButton(
-              onPressed: resetPassword,
-              child: const Text('Reset password'),
-            ),
-          ],
+        ElevatedButton(
+          onPressed: login,
+          child: const Text('Login'),
+        ),
+        TextButton(
+          onPressed: resetPassword,
+          child: const Text('Reset password'),
         ),
       ],
     );
   }
 }
 
-// Информационная часть под формой
+// Инфо-раздел под формой
 class InfoSection extends StatelessWidget {
   const InfoSection({super.key});
 
@@ -99,13 +111,15 @@ class InfoSection extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         const Text(
-          'To use all features, please log in.'
+          'To use all features, please log in. '
               'If you don’t have an account, you can register for free.',
         ),
         const SizedBox(height: 10),
         ElevatedButton(
           onPressed: () {
-            print('Register clicked');
+            ScaffoldMessenger.of(context).showSnackBar(
+              const SnackBar(content: Text('Register clicked')),
+            );
           },
           child: const Text('Register'),
         ),
@@ -114,7 +128,9 @@ class InfoSection extends StatelessWidget {
         const SizedBox(height: 10),
         ElevatedButton(
           onPressed: () {
-            print('Verify email clicked');
+            ScaffoldMessenger.of(context).showSnackBar(
+              const SnackBar(content: Text('Verify email clicked')),
+            );
           },
           child: const Text('Verify email'),
         ),

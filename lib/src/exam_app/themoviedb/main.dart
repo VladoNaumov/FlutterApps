@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'widgets/auth/auth_widget.dart';
-import 'widgets/auth/auth_widget_easy.dart';
-
-
+import 'widgets/main_screen/main_sceen_widget.dart';
 
 void main() => runApp(const MyApp());
 
@@ -20,8 +18,11 @@ class MyApp extends StatelessWidget {
           titleTextStyle: TextStyle(color: Colors.white, fontSize: 20),
         ),
       ),
-      home: const AuthWidget(), // теперь загружается логин
-     // home: const LoginPage(), // теперь загружается логин
+    routes: {
+        '/autch': (context)=>AuthWidget(),
+        '/main_screen': (context)=>MainScreenWidget(),
+    },
+    initialRoute: '/autch'
     );
   }
 

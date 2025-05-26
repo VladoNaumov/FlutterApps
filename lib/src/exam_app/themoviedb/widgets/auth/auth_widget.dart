@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 
+
 final color = const Color(0xFF01B4E4); // основной цвет
 
 final buttonStyle = ElevatedButton.styleFrom(
@@ -16,7 +17,6 @@ final textFieldDecoration = const InputDecoration(
 );
 
 const textStyle = TextStyle(fontSize: 16, color: Colors.black);
-
 
 class AuthWidget extends StatefulWidget {
   const AuthWidget({super.key});
@@ -100,8 +100,13 @@ class _FormWidgetState extends State<_FormWidget> {
   final _loginTextController =  TextEditingController();
   final _passwordTextController =  TextEditingController();
 
-  void _auch(){
+  void _auch() {
+    final login = _loginTextController.text;
+    final password = _passwordTextController.text;
 
+    if (login == 'admin' && password == 'admin') {
+     Navigator.of(context).pushReplacementNamed('/main_screen');
+    }
   }
 
   void _resetPasword(){
