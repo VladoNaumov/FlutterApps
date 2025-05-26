@@ -1,9 +1,8 @@
+// TODO : Main Screen (BottomNavigationBar)
 import 'package:flutter/material.dart';
 
 class MainScreenWidget extends StatefulWidget {
   const MainScreenWidget({super.key});
-
-
   @override
   State<MainScreenWidget> createState() => _MainScreenWidgetState();
 }
@@ -14,8 +13,7 @@ class _MainScreenWidgetState extends State<MainScreenWidget> {
     return Scaffold(
         appBar: AppBar(
         title: Text('data'),
-    ),
-      
+        ),
     );
   }
 }
