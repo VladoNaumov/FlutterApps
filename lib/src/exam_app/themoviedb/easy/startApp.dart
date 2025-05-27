@@ -1,3 +1,5 @@
+// TODO  "easy version UI interface Login and Password"
+
 import 'package:flutter/material.dart';
 import 'LoginPage.dart';
 import 'mainScreen.dart';
@@ -31,7 +33,9 @@ class MyApp extends StatelessWidget {
 }
 
 /*
-**AppBar** — верхняя панель с заголовком и кнопками
-**ThemeData** — набор настроек оформления (цвета, шрифты).
-**Material** — основа визуального стиля Material Design.
+** AppBar** — верхняя панель с заголовком и кнопками
+** ThemeData** — набор настроек оформления (цвета, шрифты).
+** Material** — основа визуального стиля Material Design.
+** bottomNavigationBarTheme- Свойство темы (ThemeData), позволяющее глобально настроить стилизацию BottomNavigationBar для всего приложения.
+* StatelessWidget** — виджет без состояния, отображает неизменяемый UI
 * */

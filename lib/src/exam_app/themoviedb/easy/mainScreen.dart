@@ -1,4 +1,6 @@
-// Простой экран после логина
+// TODO  "easy version UI interface Login and Password"
+
+// Простой экран -
 import 'package:flutter/material.dart';
 
 class MainScreen extends StatefulWidget {
@@ -54,3 +56,13 @@ class _MainScreenState extends State<MainScreen> {
     );
   }
 }
+
+/*
+** BottomNavigationBarTheme- Тема оформления для BottomNavigationBar, определяющая такие параметры, как цвет фона, цвет иконок, выделение и стиль текста
+** Scaffold -  предоставляющий структуру пользовательского интерфейса — включает AppBar, тело (body), нижнюю панель (bottomNavigationBar) и другие элементы.
+** Widget[] - Список (массив) виджетов. Обычно используется в children параметрах, где требуется передать несколько виджетов.
+** AppBar - Панель приложения в верхней части экрана. Содержит заголовок, иконки действий и другие элементы управления.
+** Center - Виджет, выравнивающий своего потомка (child) по центру родительского контейнера как по горизонтали, так и по вертикали.
+** BottomNavigationBarItem - Свойство темы (ThemeData), позволяющее глобально настроить стилизацию BottomNavigationBar для всего приложения.
+** StatefulWidget** — виджет с внутренним состоянием, может изменяться.
+* */
