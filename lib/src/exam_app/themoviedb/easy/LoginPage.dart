@@ -1,5 +1,6 @@
 // TODO  "easy version UI interface Login and Password"
 
+// login_page.dart — экран логина с простой проверкой admin/admin
 import 'package:flutter/material.dart';
 
 // Экран логина
@@ -48,6 +49,7 @@ class _LoginFormState extends State<LoginForm> {
   final passwordController = TextEditingController();
 
   void login() {
+    FocusScope.of(context).unfocus();
     final login = usernameController.text.trim();
     final password = passwordController.text.trim();
 
@@ -64,6 +66,13 @@ class _LoginFormState extends State<LoginForm> {
     ScaffoldMessenger.of(context).showSnackBar(
       const SnackBar(content: Text('Reset password requested')),
     );
+  }
+
+  @override
+  void dispose() {
+    usernameController.dispose();
+    passwordController.dispose();
+    super.dispose();
   }
 
   @override
@@ -140,13 +149,11 @@ class InfoSection extends StatelessWidget {
 }
 
 
-
 /*
  **ListView** — список с прокруткой.
  **Scaffold** — структура страницы (каркас интерфейса).
  **Text** — отображение текста.
  **Column** — вертикальное размещение элементов.
- **Row** — горизонтальное размещение элементов.
  **Padding** — отступы вокруг элемента.
  **TextField** — поле ввода текста.
  **ElevatedButton** — приподнятая кнопка с фоном.

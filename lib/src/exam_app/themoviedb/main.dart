@@ -17,6 +17,11 @@ class MyApp extends StatelessWidget {
           backgroundColor: Color.fromRGBO(3, 37, 65, 1),
           titleTextStyle: TextStyle(color: Colors.white, fontSize: 20),
         ),
+        bottomNavigationBarTheme: BottomNavigationBarThemeData(
+          backgroundColor: Color.fromRGBO(3, 37, 65, 1),
+          selectedItemColor:Colors.white,
+          unselectedItemColor: Colors.lightGreen
+        )
       ),
     routes: {
         '/autch': (context)=>AuthWidget(),

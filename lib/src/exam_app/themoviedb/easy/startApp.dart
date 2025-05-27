@@ -1,11 +1,8 @@
 import 'package:flutter/material.dart';
 import 'LoginPage.dart';
-import 'mainSccreen.dart';
+import 'mainScreen.dart';
 
-
-void main() {
-  runApp(const MyApp());
-}
+void main() => runApp(const MyApp());
 
 // Основное приложение с Material 3
 class MyApp extends StatelessWidget {
@@ -18,6 +15,11 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         useMaterial3: true,
         colorSchemeSeed: Colors.blue,
+        bottomNavigationBarTheme: const BottomNavigationBarThemeData(
+          backgroundColor: Color.fromRGBO(3, 37, 65, 1),
+          selectedItemColor: Colors.white,
+          unselectedItemColor: Colors.lightGreen,
+        ),
       ),
       initialRoute: '/',
       routes: {
