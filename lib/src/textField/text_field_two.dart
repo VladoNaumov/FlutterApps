@@ -21,6 +21,7 @@ class MyApp extends StatelessWidget {
     );
   }
 }
+// Padding: добавляет отступы.
 
 class NameInputWithController extends StatefulWidget {
   @override
@@ -67,9 +68,14 @@ class _NameInputWithControllerState extends State<NameInputWithController> {
   }
 }
 
-/*
-Объяснение:
-TextEditingController управляет текстом поля.
-Метод _showInput() читает текст и отображает его через SnackBar и в консоли.
-В dispose() обязательно освобождаем контроллер, чтобы избежать утечки памяти.
-* */
+// Позволяет управлять содержимым TextField.
+// Получаем текст: _controller.text
+// Можно очистить: _controller.clear()
+// В dispose(); свобождает ресурсы контроллера, когда виджет уничтожается. Обязателен при использовании TextEditingController в StatefulWidget.
+// controller: — указывает, что это поле связано с _controller, т.е. мы можем читать текст из него в любой момент.
+
+// InputDecoration добавляет:
+// labelText — метку ("Введите имя")
+// hintText — серую подсказку внутри поля ("Иван Иванов")
+// border: — рамку.
+

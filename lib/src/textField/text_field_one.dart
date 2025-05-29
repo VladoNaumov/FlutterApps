@@ -1,3 +1,9 @@
+/*
+Показывает поле ввода (TextField) с рамкой и подсказкой.
+При каждом изменении текста в консоли появляется сообщение:
+Пользователь ввёл: ....
+ */
+
 import 'package:flutter/material.dart';
 
 void main() => runApp(MyApp());
@@ -19,6 +25,8 @@ class MyApp extends StatelessWidget {
     );
   }
 }
+// Padding добавляет отступы.
+// NameInputField() — пользовательский виджет, в котором находится TextField.
 
 class NameInputField extends StatelessWidget {
   @override
@@ -37,7 +45,10 @@ class NameInputField extends StatelessWidget {
 }
 
 /*
-* Что делает этот код:
-Показывает поле ввода (TextField) с рамкой и подсказкой.
-При каждом изменении текста в консоли появляется сообщение: Пользователь ввёл: ....
+
+TextField — поле ввода текста.
+decoration: — отвечает за оформление.
+labelText: Метка, которая сдвигается вверх, когда пользователь начинает ввод.
+hintText: Светлая подсказка внутри поля.
+border: OutlineInputBorder() : Добавляет рамку вокруг поля.
 * */

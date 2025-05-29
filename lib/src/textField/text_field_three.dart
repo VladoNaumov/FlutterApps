@@ -99,3 +99,13 @@ class _NameInputAdvancedState extends State<NameInputAdvanced> {
     );
   }
 }
+
+// TextEditingController:	Управление текстом поля
+// FocusNode:	Управление фокусом
+// dispose():	Освобождение ресурсов
+// initState():	Автоматическая установка фокуса
+// requestFocus():	Установка фокуса вручную
+// clear():	Очистка поля ввода
+// SnackBar:	Показ краткого уведомления пользователю
+// suffixIcon:	Иконка внутри TextField, справа
+// ElevatedButton:	Кнопки действия
